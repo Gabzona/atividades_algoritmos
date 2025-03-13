@@ -4,31 +4,36 @@
 //menor q dois
 
 
+function multiplicarNumeros(){
+    let soma = 0
+    for(let i = 0; i<array_base.length; i++){
+        soma += array_base[i] * array_multiplicacao[i]
+    }
+    let resto = soma % 11;
+    let digito
+    if(resto < 2){
+        digito = 0
+    }else{
+        digito = 11 - resto
+    }
+    return digito
+}
+
 function gerarCNPJ () {
     let numero_base = Math.floor(Math.random() * 100000000)
     numero_base = numero_base.toString() + "0001"
     let array_base = numero_base.split('')
-
-
     let array_multiplicacao = [5,4,3,2,9,8,7,6,5,4,3,2]
     let soma = 0;
 
+    let digito1 = multiplicarNumeros(array_base, array_multiplicacao)
+    array_base.push(digito1.toString()) //adiciona o digito no array (em string)
+    array_multiplicação.unshift(6)
 
-    for(let i = 0; i<array_base.length; i++){
-        soma += array_base[i] * array_multiplicacao[i]
-    }
+    let digito2 = multiplicarNumeros(array_base, array_multiplicacao)
+    array_base.push(digito2.toString())
 
-
-    let resto = soma % 11;
-    let digito1 = 0;
-
-
-    if(resto < 2){
-        digito1 = 0
-    }else{
-        digito1 = 11 - resto
-    }
-    console.log(digito1)
+    return array_base.join('')
 }
 
 gerarCNPJ()
