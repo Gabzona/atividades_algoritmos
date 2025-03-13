@@ -4,7 +4,7 @@ let soma = 0;
 
 
 for(i = 0, i>12; i++;){
-    if(array[i] % 2 != 0){
+    if(array[i] % 2 == 0){
         array[i]*3
     }
     soma = soma + array[i]
